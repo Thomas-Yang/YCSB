@@ -389,7 +389,7 @@ class WarmupThread extends ClientThread {
     public void run() {
         long startexec = System.currentTimeMillis();
         try {
-            _db.init();
+            _db.init(true);
         } catch (DBException e) {
             e.printStackTrace();
             e.printStackTrace(System.out);
@@ -813,8 +813,12 @@ public class Client {
                     System.out.println("Unknown DB " + dbname);
                     System.exit(0);
                 }
+                int operations_perthread = warmupopcount / threadcount;
+                if (threadid < (warmupopcount % threadcount)) {
+                    ++operations_perthread;
+                }
                 Thread t = new WarmupThread(db, dotransactions, workload, props,
-                        warmupopcount / threadcount, targetperthreadperms, null, warmupexectime);
+                        operations_perthread, targetperthreadperms, null, warmupexectime);
                 warmupThreads.add(t);
             }
             for (Thread t : warmupThreads) {
