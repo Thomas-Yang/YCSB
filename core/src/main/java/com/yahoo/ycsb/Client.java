@@ -411,8 +411,6 @@ class WarmupThread extends ClientThread {
             _opsdone++;
             curexec = System.currentTimeMillis() - startexec;
         }
-        System.out.println("Warmup execution time: " + curexec);
-        System.out.println("Warmup operations: " + _opsdone);
     }
 
     private boolean isContinue() {
@@ -830,7 +828,7 @@ public class Client {
                 }
             }
         }
-
+        System.err.println("Finish warming up the db with " + warmupopcount + " read operations");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

@@ -52,7 +52,7 @@ public class OneMeasurementTimeSeries extends OneMeasurement {
     public static final String GRANULARITY = "timeseries.granularity";
     public static final String GRANULARITY_DEFAULT = "1000";
     public static final String JVMIDENTIFIER = "jvm.identity";
-    public static JVMProfiler jvmProfiler;
+    private static JVMProfiler jvmProfiler;
 
     int _granularity;
     Vector<SeriesUnit> _measurements;
