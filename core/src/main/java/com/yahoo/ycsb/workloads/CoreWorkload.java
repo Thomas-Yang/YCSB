@@ -586,7 +586,13 @@ public class CoreWorkload extends Workload
 		return true;
 	}
 
-  /**
+	@Override
+	public boolean doRead(DB db, Object threadstate) {
+		doTransactionRead(db);
+		return true;
+	}
+
+	/**
    * Results are reported in the first three buckets of the histogram under
    * the label "VERIFY". 
    * Bucket 0 means the expected data was returned.
