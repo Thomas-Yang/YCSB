@@ -1,0 +1,24 @@
+# hosts=localhost
+host=localhost
+# host=clarity28.eecs.umich.edu
+# measurementtype=timeseries
+# timeseries.granularity=10
+# warmupoperationcount=100000
+# threadcount=88
+
+# workloadb: 100% load
+# threadcount=192
+
+# workloada: 100% load
+# threadcount=192
+
+# workloadag: 100% load
+# threadcount=224
+# threadcount=176
+threadcount=192
+
+# threadcount=256
+# operationcount=1000000
+# operationcount=100000
+operationcount=500000
+port=9042
